@@ -35,7 +35,7 @@
       max-width: 500px;
       text-align: center;
       backdrop-filter: blur(8px);
-      margin-top: 40px;
+      margin-top: 80px;
     }
 
     .avatar {
@@ -100,11 +100,22 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.2s, background-color 0.3s;
     }
 
     .project-card h3 {
       font-size: 1.3em;
       margin-bottom: 10px;
+    }
+
+    .project-list a.project-card {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .project-list a.project-card:hover {
+      transform: scale(1.03);
+      background-color: rgba(255, 255, 255, 0.3);
     }
 
     .download-btn {
@@ -121,6 +132,39 @@
 
     .download-btn:hover {
       background-color: #45a049;
+    }
+
+    #toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1000;
+    }
+
+    body.dark {
+      background: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #0f0f0f, #1a1a1a);
+      color: #ddd;
+    }
+
+    body.dark .card,
+    body.dark .project-card {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark .linkedin {
+      background-color: #0e76a8;
+    }
+
+    body.dark .download-btn {
+      background-color: #222;
+      color: #fff;
     }
 
     @media (max-width: 768px) {
@@ -142,6 +186,8 @@
   </style>
 </head>
 <body>
+  <button id="toggle-theme">🌙 Modo Escuro</button>
+
   <div class="card">
     <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Avatar" class="avatar">
     <h1>Pablo Saraiva</h1>
@@ -155,38 +201,56 @@
     </a>
   </div>
 
-  <!-- Seção sobre mim -->
   <section class="about">
     <h2>Sobre Mim</h2>
     <p>Sou Pablo Saraiva, estudante de Análise e Desenvolvimento de Sistemas (ADS) no CEUB. Tenho experiência como vendedor de armas e ex-dono de uma empresa de banners. Estou sempre buscando evoluir nas minhas áreas de atuação e aprender novas tecnologias, especialmente na programação e desenvolvimento web. Meus interesses incluem segurança, tecnologia e design gráfico.</p>
   </section>
 
-  <!-- Seção de Projetos -->
   <section class="projects">
     <h2>Meus Projetos</h2>
     <div class="project-list">
-      <div class="project-card">
+      <a href="https://sites.google.com/d/1z-5X36Oo_XZZw9wKzkhnfgqpAhaCFbX/p/1DHGfdmPgVHKsyoNWUGKGGBdI4wwhL4Y7/edit" target="_blank" class="project-card">
         <h3>Portfólio Online</h3>
         <p>Site criado para apresentar minha trajetória profissional e projetos, com visual moderno e organizado.</p>
-        <a href="https://sites.google.com/d/1z-5X36Oo_XZZw9wKzkhnfgqpAhaCFbX/p/1DHGfdmPgVHKsyoNWUGKGGBdI4wwhL4Y7/edit" target="_blank" style="color: #ffd700;">Ver projeto</a>
-      </div>
-      <div class="project-card">
+      </a>
+      <a href="https://docs.google.com/presentation/d/1ZNPebAZ1P5oRcRWD03k6A6bVioZUESjFodg5PRxCxTc/edit#slide=id.p" target="_blank" class="project-card">
         <h3>Slides Profissionais</h3>
         <p>Apresentação em slides com resumo de experiências e projetos desenvolvidos.</p>
-        <a href="https://docs.google.com/presentation/d/1ZNPebAZ1P5oRcRWD03k6A6bVioZUESjFodg5PRxCxTc/edit#slide=id.p" target="_blank" style="color: #ffd700;">Ver slides</a>
-      </div>
-      <div class="project-card">
+      </a>
+      <a href="#" class="project-card">
         <h3>Portfólio GitHub Pages</h3>
         <p>Este site que você está navegando, criado com HTML, CSS e boas práticas de apresentação para portfólios online.</p>
-      </div>
+      </a>
     </div>
   </section>
 
-  <!-- Botão de download de currículo -->
   <div style="text-align: center;">
-    <a href="CurriculoPabloSaraiva%20(1).pdf" class="download-btn" download>
+    <a href="curriculo.pdf" class="download-btn" download>
       <i class="fas fa-file-download"></i> Baixar Currículo
     </a>
   </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-theme');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+      toggleBtn.textContent = '☀️ Modo Claro';
+      toggleBtn.style.backgroundColor = '#333';
+      toggleBtn.style.color = '#fff';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const darkMode = body.classList.contains('dark');
+
+      toggleBtn.textContent = darkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+      toggleBtn.style.backgroundColor = darkMode ? '#333' : '#fff';
+      toggleBtn.style.color = darkMode ? '#fff' : '#000';
+
+      localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
