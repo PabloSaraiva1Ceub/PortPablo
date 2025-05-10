@@ -100,22 +100,11 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: transform 0.2s, background-color 0.3s;
     }
 
     .project-card h3 {
       font-size: 1.3em;
       margin-bottom: 10px;
-    }
-
-    .project-list a.project-card {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .project-list a.project-card:hover {
-      transform: scale(1.03);
-      background-color: rgba(255, 255, 255, 0.3);
     }
 
     .download-btn {
@@ -192,9 +181,9 @@
     <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Avatar" class="avatar">
     <h1>Pablo Saraiva</h1>
     <div class="icons">
-      <p><i class="fas fa-graduation-cap"></i> Analise e Desenvolvimento de Sistemas</p>
-      <p><i class="fas fa-gun"></i> Empreendedor no ramo de banners</p>
-      <p><i class="fas fa-calendar"></i> 21 anos</p>
+      <p><i class="fas fa-graduation-cap"></i> Estudante de Análise e Desenvolvimento de Sistemas (CEUB)</p>
+      <p><i class="fas fa-paint-brush"></i> Empreendedor no ramo de banners</p>
+      <p><i class="fas fa-calendar-day"></i> 21 anos</p>
     </div>
     <a class="linkedin" href="https://www.linkedin.com/in/pablosaraiva1811/" target="_blank">
       <i class="fab fa-linkedin"></i> Conectar no LinkedIn
@@ -203,7 +192,9 @@
 
   <section class="about">
     <h2>Sobre Mim</h2>
-    <p>Sou Pablo Saraiva, estudante de Análise e Desenvolvimento de Sistemas (ADS) no CEUB. Tenho experiência como empreendedor no ramo de banners e estou sempre buscando evoluir nas minhas áreas de atuação, especialmente na programação e desenvolvimento web. Meus interesses incluem segurança, tecnologia e design gráfico.</p>
+    <p>Olá, sou Pablo Saraiva, estudante de Análise e Desenvolvimento de Sistemas (ADS) no CEUB, com grande interesse por tecnologia, inovação e design. Como empreendedor no ramo de banners, venho ganhando experiência prática e aprendendo a aplicar soluções criativas para atender às necessidades do mercado.</p>
+    <p>Minha trajetória acadêmica e profissional tem sido marcada pela busca constante de evolução, especialmente nas áreas de programação, desenvolvimento web e design gráfico. Estou sempre em busca de aprimorar minhas habilidades e me manter atualizado com as tendências do mercado, com foco na segurança digital e soluções tecnológicas que impactam positivamente o dia a dia das pessoas.</p>
+    <p>Acredito no poder da tecnologia para transformar ideias em resultados concretos e estou animado para continuar explorando novas possibilidades e desafios.</p>
   </section>
 
   <section class="projects">
@@ -243,21 +234,14 @@
 
     toggleBtn.addEventListener('click', () => {
       body.classList.toggle('dark');
-      if (body.classList.contains('dark')) {
-        localStorage.setItem('theme', 'dark');
-        toggleBtn.textContent = '☀️ Modo Claro';
-        toggleBtn.style.backgroundColor = '#333';
-        toggleBtn.style.color = '#fff';
-      } else {
-        localStorage.setItem('theme', 'light');
-        toggleBtn.textContent = '🌙 Modo Escuro';
-        toggleBtn.style.backgroundColor = '#fff';
-        toggleBtn.style.color = '#000';
-      }
+      const darkMode = body.classList.contains('dark');
+
+      toggleBtn.textContent = darkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+      toggleBtn.style.backgroundColor = darkMode ? '#333' : '#fff';
+      toggleBtn.style.color = darkMode ? '#fff' : '#000';
+
+      localStorage.setItem('theme', darkMode ? 'dark' : 'light');
     });
   </script>
 </body>
 </html>
-```
-
-Agora, a idade foi separada em um campo próprio, e o alinhamento dos links e do botão de download foi corrigido.
