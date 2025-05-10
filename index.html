@@ -4,33 +4,97 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pablo Saraiva - Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 40px;
-      color: #333;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background: #fff;
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      max-width: 500px;
+      text-align: center;
+      backdrop-filter: blur(8px);
     }
-    a {
-      color: #0077b5;
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #fff;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .icons p i {
+      margin-right: 8px;
+      color: #ffd700;
+    }
+
+    .linkedin {
+      display: inline-block;
+      margin-top: 15px;
+      background-color: #0077b5;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
       text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .linkedin:hover {
+      background-color: #005a8d;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        margin: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Olá! Eu sou <strong>Pablo Saraiva</strong></h1>
-    <p>Tenho 21 anos, sou estudante de Análise e Desenvolvimento de Sistemas no CEUB.</p>
-    <p>Trabalhei como <strong>vendedor de armas</strong> por 1 ano e também fui dono de uma empresa de banners.</p>
-    <p>Acesse meu <a href="https://www.linkedin.com/in/pablosaraiva1811/" target="_blank">LinkedIn</a></p>
+  <div class="card">
+    <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Avatar" class="avatar">
+    <h1>Pablo Saraiva</h1>
+    <div class="icons">
+      <p><i class="fas fa-graduation-cap"></i> Estudante de ADS no CEUB (21 anos)</p>
+      <p><i class="fas fa-gun"></i> Vendedor de armas por 1 ano</p>
+      <p><i class="fas fa-pen-nib"></i> Ex-dono de empresa de banners</p>
+    </div>
+    <a class="linkedin" href="https://www.linkedin.com/in/pablosaraiva1811/" target="_blank">
+      <i class="fab fa-linkedin"></i> Conectar no LinkedIn
+    </a>
   </div>
 </body>
 </html>
