@@ -1,29 +1,263 @@
-.card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  max-width: 500px;
-  text-align: center;
-  backdrop-filter: blur(8px);
-  margin-top: 80px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pablo Saraiva - Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-.card:hover {
-  transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.15);
-}
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-.project-card {
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      max-width: 500px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      margin-top: 80px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
 
-.project-card:hover {
-  transform: scale(1.03);
-  background-color: rgba(255, 255, 255, 0.3);
-}
+    .card:hover {
+      transform: scale(1.05);
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #fff;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .icons p i {
+      margin-right: 8px;
+      color: #ffd700;
+    }
+
+    .linkedin {
+      display: inline-block;
+      margin-top: 15px;
+      background-color: #0077b5;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .linkedin:hover {
+      background-color: #005a8d;
+    }
+
+    .projects, .about {
+      max-width: 1000px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .projects h2, .about h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.03);
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin: 40px auto;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #45a049;
+    }
+
+    #toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1000;
+    }
+
+    body.dark {
+      background: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #0f0f0f, #1a1a1a);
+      color: #ddd;
+    }
+
+    body.dark .card,
+    body.dark .project-card {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark .linkedin {
+      background-color: #0e76a8;
+    }
+
+    body.dark .download-btn {
+      background-color: #222;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .project-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        margin: 20px;
+        width: 90%;
+      }
+
+      .project-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-list a.project-card {
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .project-list a.project-card:hover {
+      transform: scale(1.03);
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-theme">🌙 Modo Escuro</button>
+
+  <div class="card">
+    <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Avatar" class="avatar">
+    <h1>Pablo Saraiva</h1>
+    <div class="icons">
+      <p><i class="fas fa-graduation-cap"></i> Estudante de Análise e Desenvolvimento de Sistemas no CEUB</p>
+      <p><i class="fas fa-business-time"></i> Empreendedor no ramo de banners</p>
+      <p><i class="fas fa-calendar-alt"></i> 21 anos</p>
+    </div>
+    <a class="linkedin" href="https://www.linkedin.com/in/pablosaraiva1811/" target="_blank">
+      <i class="fab fa-linkedin"></i> Conectar no LinkedIn
+    </a>
+  </div>
+
+  <section class="about">
+    <h2>Sobre Mim</h2>
+    <p>Sou Pablo Saraiva, estudante de Análise e Desenvolvimento de Sistemas no CEUB. Tenho experiência como empreendedor no ramo de banners e estou sempre buscando evoluir nas minhas áreas de atuação, especialmente na programação e desenvolvimento web. Meus interesses incluem segurança, tecnologia e design gráfico.</p>
+  </section>
+
+  <section class="projects">
+    <h2>Meus Projetos</h2>
+    <div class="project-list">
+      <a href="https://sites.google.com/d/1z-5X36Oo_XZZw9wKzkhnfgqpAhaCFbX/p/1DHGfdmPgVHKsyoNWUGKGGBdI4wwhL4Y7/edit" target="_blank" class="project-card">
+        <h3>Portfólio Online</h3>
+        <p>Site criado para apresentar minha trajetória profissional e projetos, com visual moderno e organizado.</p>
+      </a>
+      <a href="https://docs.google.com/presentation/d/1ZNPebAZ1P5oRcRWD03k6A6bVioZUESjFodg5PRxCxTc/edit#slide=id.p" target="_blank" class="project-card">
+        <h3>Slides Profissionais</h3>
+        <p>Apresentação em slides com resumo de experiências e projetos desenvolvidos.</p>
+      </a>
+      <a href="#" class="project-card">
+        <h3>Portfólio GitHub Pages</h3>
+        <p>Este site que você está navegando, criado com HTML, CSS e boas práticas de apresentação para portfólios online.</p>
+      </a>
+    </div>
+  </section>
+
+  <div style="text-align: center;">
+    <a href="curriculo.pdf" class="download-btn" download>
+      <i class="fas fa-file-download"></i> Baixar Currículo
+    </a>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-theme');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+      toggleBtn.textContent = '☀️ Modo Claro';
+      toggleBtn.style.backgroundColor = '#333';
+      toggleBtn.style.color = '#fff';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const darkMode = body.classList.contains('dark');
+
+      toggleBtn.textContent = darkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+      toggleBtn.style.backgroundColor = darkMode ? '#333' : '#fff';
+      toggleBtn.style.color = darkMode ? '#fff' : '#000';
+
+      localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
