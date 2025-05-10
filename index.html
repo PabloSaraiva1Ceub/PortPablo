@@ -16,7 +16,7 @@
       animation: gradient 10s ease infinite;
       color: #fff;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       min-height: 100vh;
     }
@@ -35,6 +35,7 @@
       max-width: 500px;
       text-align: center;
       backdrop-filter: blur(8px);
+      margin-top: 40px;
     }
 
     .avatar {
@@ -76,9 +77,66 @@
       background-color: #005a8d;
     }
 
+    .projects, .about {
+      max-width: 1000px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .projects h2, .about h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .project-card h3 {
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin: 40px auto;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 768px) {
+      .project-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 600px) {
       .card {
         margin: 20px;
+        width: 90%;
+      }
+
+      .project-list {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -96,6 +154,39 @@
       <i class="fab fa-linkedin"></i> Conectar no LinkedIn
     </a>
   </div>
+
+  <!-- Seção sobre mim -->
+  <section class="about">
+    <h2>Sobre Mim</h2>
+    <p>Sou Pablo Saraiva, estudante de Análise e Desenvolvimento de Sistemas (ADS) no CEUB. Tenho experiência como vendedor de armas e ex-dono de uma empresa de banners. Estou sempre buscando evoluir nas minhas áreas de atuação e aprender novas tecnologias, especialmente na programação e desenvolvimento web. Meus interesses incluem segurança, tecnologia e design gráfico.</p>
+  </section>
+
+  <!-- Seção de Projetos -->
+  <section class="projects">
+    <h2>Meus Projetos</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>Portfólio Online</h3>
+        <p>Site criado para apresentar minha trajetória profissional e projetos, com visual moderno e organizado.</p>
+        <a href="https://sites.google.com/d/1z-5X36Oo_XZZw9wKzkhnfgqpAhaCFbX/p/1DHGfdmPgVHKsyoNWUGKGGBdI4wwhL4Y7/edit" target="_blank" style="color: #ffd700;">Ver projeto</a>
+      </div>
+      <div class="project-card">
+        <h3>Slides Profissionais</h3>
+        <p>Apresentação em slides com resumo de experiências e projetos desenvolvidos.</p>
+        <a href="https://docs.google.com/presentation/d/1ZNPebAZ1P5oRcRWD03k6A6bVioZUESjFodg5PRxCxTc/edit#slide=id.p" target="_blank" style="color: #ffd700;">Ver slides</a>
+      </div>
+      <div class="project-card">
+        <h3>Portfólio GitHub Pages</h3>
+        <p>Este site que você está navegando, criado com HTML, CSS e boas práticas de apresentação para portfólios online.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botão de download de currículo -->
+  <div style="text-align: center;">
+    <a href="CurriculoPabloSaraiva%20(1).pdf" class="download-btn" download>
+      <i class="fas fa-file-download"></i> Baixar Currículo
+    </a>
+  </div>
 </body>
 </html>
-
