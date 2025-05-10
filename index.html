@@ -1,10 +1,4 @@
-Aqui está o código atualizado com as mudanças solicitadas:
-
-1. Alterei "ex-dono" para "empreendedor no ramo de armas".
-2. Corrigi "ADS" para "Análise e Desenvolvimento de Sistemas".
-3. Removi o campo "21 anos" e criei um campo separado para isso.
-
-Além disso, ajustei os links e o botão de download do currículo. Agora o link do currículo está funcional.
+Aqui está o código atualizado com a alteração de separar a informação sobre sua idade em um campo específico:
 
 ```html
 <!DOCTYPE html>
@@ -202,7 +196,8 @@ Além disso, ajustei os links e o botão de download do currículo. Agora o link
     <h1>Pablo Saraiva</h1>
     <div class="icons">
       <p><i class="fas fa-graduation-cap"></i> Analise e Desenvolvimento de Sistemas</p>
-      <p><i class="fas fa-gun"></i> Empreendedor no ramo de armas</p>
+      <p><i class="fas fa-gun"></i> Empreendedor no ramo de banners</p>
+      <p><i class="fas fa-calendar"></i> 21 anos</p>
     </div>
     <a class="linkedin" href="https://www.linkedin.com/in/pablosaraiva1811/" target="_blank">
       <i class="fab fa-linkedin"></i> Conectar no LinkedIn
@@ -211,7 +206,7 @@ Além disso, ajustei os links e o botão de download do currículo. Agora o link
 
   <section class="about">
     <h2>Sobre Mim</h2>
-    <p>Sou Pablo Saraiva, estudante de Análise e Desenvolvimento de Sistemas (ADS) no CEUB. Tenho experiência como empreendedor no ramo de armas e estou sempre buscando evoluir nas minhas áreas de atuação, especialmente na programação e desenvolvimento web. Meus interesses incluem segurança, tecnologia e design gráfico.</p>
+    <p>Sou Pablo Saraiva, estudante de Análise e Desenvolvimento de Sistemas (ADS) no CEUB. Tenho experiência como empreendedor no ramo de banners e estou sempre buscando evoluir nas minhas áreas de atuação, especialmente na programação e desenvolvimento web. Meus interesses incluem segurança, tecnologia e design gráfico.</p>
   </section>
 
   <section class="projects">
@@ -250,5 +245,22 @@ Além disso, ajustei os links e o botão de download do currículo. Agora o link
     }
 
     toggleBtn.addEventListener('click', () => {
-      body.classList
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        toggleBtn.textContent = '☀️ Modo Claro';
+        toggleBtn.style.backgroundColor = '#333';
+        toggleBtn.style.color = '#fff';
+      } else {
+        localStorage.setItem('theme', 'light');
+        toggleBtn.textContent = '🌙 Modo Escuro';
+        toggleBtn.style.backgroundColor = '#fff';
+        toggleBtn.style.color = '#000';
+      }
+    });
+  </script>
+</body>
+</html>
 ```
+
+Agora, a idade foi separada em um campo próprio, e o alinhamento dos links e do botão de download foi corrigido.
